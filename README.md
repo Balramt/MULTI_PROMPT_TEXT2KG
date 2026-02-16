@@ -136,11 +136,9 @@ Contains performance and hallucination metrics computed after evaluator filterin
 
 ### 📁 Dataset-wise Results
 
-1. **DBpedia–WebNLG**  
-   [`metrics_evaluation/dbpedia`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation/dbpedia)
+1. [**DBpedia–WebNLG**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation/dbpedia)
 
-2. **Wikidata–TekGen**  
-   [`metrics_evaluation/wikidata`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation/wikidata)
+2. [**Wikidata–TekGen**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation/wikidata)
 
 ---
 
