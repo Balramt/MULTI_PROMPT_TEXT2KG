@@ -28,136 +28,104 @@ The evaluator filters candidate triples using cross-prompt agreement, explicit e
 
 # 📂 Data Directory
 
-The `data/` directory contains all datasets, ontologies, training data, and evaluation inputs required to reproduce the experiments.
-
-## 1️⃣ Input Text  
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/input_text  
-
-Contains the raw input sentences for both **DBpedia–WebNLG** and **Wikidata–TekGen** datasets used during inference and evaluation.
+### 📂 [`input_text`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/input_text)
+Contains raw input sentences for both **DBpedia–WebNLG** and **Wikidata–TekGen** used during inference and evaluation.
 
 ---
 
-## 2️⃣ Ground Truth  
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth  
-
-Gold standard SPO triples for evaluation. These are used to compute **precision, recall, and F1-score**.
+### 📂 [`ground_truth`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth)
+Gold standard SPO triples used to compute **Precision, Recall, and F1-score**.
 
 ---
 
-## 3️⃣ Few-Shot Examples  
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example  
-
-Example triples used inside prompts to guide the model during extraction (few-shot prompting).
+### 📂 [`fewshots_example`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example)
+Few-shot examples injected into prompts to guide ontology-aligned triple extraction.
 
 ---
 
-## 4️⃣ Ontology Files  
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ontology/old_ontology  
-
-Domain-specific ontology schemas containing:
-
-- Concept sets  
-- Relation definitions  
+### 📂 [`ontology`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ontology/old_ontology)
+Domain-specific ontology schemas including:
+- Concept definitions  
+- Relation signatures  
 - Domain–range constraints  
 
-These are injected into prompts to enforce ontology-aware extraction.
+These are directly injected into prompts to enforce schema compliance.
 
 ---
 
-## 5️⃣ Training Data  
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data  
-
-Contains the combined and enriched training data used for fine-tuning the **LLaMA-3** model.
+### 📂 [`train_data`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data)
+Combined and enriched training dataset used for **LLaMA-3 fine-tuning**.
 
 ---
 
-# 🧠 src/ – Main Source Directory  
+# 🧠 Source Code (`src/`)
 
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/src  
-
-The `src/` directory contains the complete implementation of:
+### 📂 [`src`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/src)
+Contains the full implementation of:
 
 - Synthetic data generation  
 - Model fine-tuning  
-- Multi-prompt triple extraction  
+- Multi-prompt extraction  
 - Evaluator logic  
-- Performance and hallucination evaluation  
-
-Below is a breakdown of each component.
+- Evaluation metrics  
 
 ---
 
-## 🔹 1️⃣ Synthetic Data Generation  
+## 🔹 Data Preparation & Training
 
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/Synthetic_train_data_generation_7B.py  
-
-Generates additional ontology-aligned triples for **Wikidata–TekGen** training data using a larger LLM.  
-The script preserves seed triples and filters outputs based on ontology constraints to reduce noise.
+### 📂 [`Synthetic_train_data_generation_7B.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/Synthetic_train_data_generation_7B.py)
+Generates ontology-filtered synthetic triples for **Wikidata–TekGen** using a larger LLM.  
+Preserves seed triples and removes out-of-schema relations to improve training quality.
 
 ---
 
-## 🔹 2️⃣ LLaMA-3 Fine-Tuning  
-
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/Llama_finetuned.py  
-
+### 📂 [`Llama_finetuned.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/Llama_finetuned.py)
 Performs supervised fine-tuning (SFT) of **LLaMA-3-8B-Instruct** using LoRA/QLoRA.  
-The model learns structured JSON SPO output and ontology-aware relation naming.
+Trains the model to generate structured JSON SPO triples with ontology-aware relation naming.
 
 ---
 
-# 🔁 Multi-Prompt Triple Extraction Modules
+# 🔁 Multi-Prompt Extraction Modules
 
-## 1️⃣ Structured Multi-Step Reasoning (ToT-Based Extractor)
-
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/Llama_finetuned.py  
-
-Implements a Tree-of-Thoughts (ToT) style extraction using depth-first search, state scoring, and pruning under ontology constraints.
+### 📂 [`ToT-Based Structured Extractor`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/Llama_finetuned.py)
+Implements Tree-of-Thoughts style extraction with depth-first search, state scoring, and pruning under ontology constraints.
 
 ---
 
-## 2️⃣ Ontology-Constrained OpenIE Prompt
-
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/multi_prompt_extractor/Open_IE_prompt.py  
-
-Single-pass ontology-aware extraction enforcing domain–range constraints, semantic types, and textual evidence spans.
+### 📂 [`Open_IE_prompt.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/multi_prompt_extractor/Open_IE_prompt.py)
+Single-pass ontology-constrained OpenIE extraction enforcing domain–range rules, semantic typing, and evidence spans.
 
 ---
 
-## 3️⃣ General Ontology-Aware Extraction Prompt
-
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/multi_prompt_extractor/general_extraction_prompt.py  
-
-Lightweight SPO extraction with minimal structural constraints.  
-Provides high recall and complementary coverage to stricter prompts.
+### 📂 [`general_extraction_prompt.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/multi_prompt_extractor/general_extraction_prompt.py)
+Lightweight ontology-aware SPO extraction with minimal structural constraints, providing high recall and complementary coverage.
 
 ---
 
-# 🧠 Evaluator Module
+# 🧠 Evaluator
 
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/evaluator.py  
-
-Implements hierarchical verification using:
+### 📂 [`evaluator.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/evaluator.py)
+Implements hierarchical triple verification:
 
 - **Rule A – Cross-Prompt Consensus**
 - **Rule B – Evidence-Based Validation**
 - **Rule C – Similarity-Based Filtering**
 
-The evaluator merges and filters triples to reduce hallucinations and enforce schema compliance.
+Merges and filters candidate triples to reduce hallucinations and ensure ontology consistency.
 
 ---
 
-# 📊 Evaluation Scripts
+# 📊 Evaluation
 
-🔗 https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/metrics_evaluation.py  
-
+### 📂 [`metrics_evaluation.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/metrics_evaluation.py)
 Computes:
 
 - Precision  
 - Recall  
 - F1-score  
-- Ontology Conformance (**OC ↑**)  
-- Subject Hallucination (**SH ↓**)  
-- Relation Hallucination (**RH ↓**)  
-- Object Hallucination (**OH ↓**)  
+- Ontology Conformance (OC ↑)  
+- Subject Hallucination (SH ↓)  
+- Relation Hallucination (RH ↓)  
+- Object Hallucination (OH ↓)  
 
-All reported metrics are calculated **after evaluator filtering**.
+All metrics are calculated **after evaluator filtering**.
