@@ -2,7 +2,7 @@
 
 This repository contains the official implementation of our research framework for **Ontology-Aware Knowledge Graph Construction from Unstructured Text using Large Language Models (LLMs)**.
 
-The system combines multiple prompting strategies with a hierarchical evaluator to improve extraction accuracy while mitigating hallucinations. It is designed and evaluated on the **Text2KGBench** benchmark (DBpedia–WebNLG and Wikidata–TekGen).
+The system combines multiple prompting strategies with a hierarchical evaluator to improve extraction accuracy while mitigating hallucinations. It is designed and evaluated on the **Text2KGBench** benchmark.
 
 ---
 
