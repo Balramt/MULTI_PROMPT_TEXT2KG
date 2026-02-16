@@ -28,6 +28,8 @@ The evaluator filters candidate triples using cross-prompt agreement, explicit e
 
 # 📂 Data Directory
 
+# Input data
+
 ### 📂 [`input_text`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/input_text)
 Contains raw input sentences for both **DBpedia–WebNLG** and **Wikidata–TekGen** used during inference and evaluation.
 
