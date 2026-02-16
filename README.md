@@ -86,6 +86,77 @@ Combined and enriched training dataset used for **LLaMA-3 fine-tuning**.
    The Wikidata dataset is synthetically enriched to compensate for incomplete distant supervision.  
    The filtered output data is directly used during LLaMA-3 supervised fine-tuning.
 
+# 📤 Output Data
+
+This section contains all generated outputs from the multi-prompt extraction pipeline, evaluator filtering stage, and final evaluation metrics.
+
+---
+
+## 🔁 Multi-Prompt Extraction Outputs
+
+Each prompting strategy generates an independent candidate triple set before evaluator filtering.
+
+### 🔹 [`TOT_dfs`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/multi_step_prompts/TOT_dfs)
+Structured **Tree-of-Thoughts (ToT)-based depth-first search extraction** outputs.  
+Includes intermediate reasoning states and final candidate triples generated under ontology constraints.
+
+---
+
+### 🔹 [`Open_IE_prompt`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/multi_step_prompts/Open_IE_prompt)
+Outputs from the **Ontology-Constrained Open Information Extraction** prompt.  
+Single-pass extraction enforcing domain–range constraints, semantic typing, and evidence spans.
+
+---
+
+### 🔹 [`general_extraction_prompt`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/multi_step_prompts/general_extraction_prompt)
+Outputs from the **General Ontology-Aware Extraction Prompt**.  
+Lightweight high-recall SPO extraction with minimal structural constraints.
+
+---
+
+## 🧠 Evaluator-Filtered Outputs
+
+### 🔹 [`evaluator_filtered_output`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/evaluator_filtered_output)
+
+Final merged and filtered triple sets after applying:
+
+- Rule A – Cross-Prompt Consensus  
+- Rule B – Evidence-Based Validation  
+- Rule C – Similarity-Based Filtering  
+
+All reported experimental results are computed using these filtered outputs.
+
+---
+
+## 📊 Evaluation Results
+
+### 🔹 [`metrics_evaluation`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation)
+
+Contains performance and hallucination metrics computed after evaluator filtering.
+
+### 📁 Dataset-wise Results
+
+1. **DBpedia–WebNLG**  
+   [`metrics_evaluation/dbpedia`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation/dbpedia)
+
+2. **Wikidata–TekGen**  
+   [`metrics_evaluation/wikidata`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation/wikidata)
+
+---
+
+### 📈 Reported Metrics
+
+- Precision (P)  
+- Recall (R)  
+- F1-score (F1)  
+- Ontology Conformance (OC ↑)  
+- Subject Hallucination (SH ↓)  
+- Relation Hallucination (RH ↓)  
+- Object Hallucination (OH ↓)  
+
+All metrics are computed on the **evaluator-filtered triple sets**.
+
+
 
 # 🧠 Source Code (`src/`)
 
