@@ -1,0 +1,46 @@
+{
+  "title": "Music Ontology",
+  "id": "ont_2_music",
+  "concepts": [
+    {"qid": "Q2188189", "label": "musical work"},
+    {"qid": "Q482994", "label": "album"},
+    {"qid": "Q7366", "label": "song"},
+    {"qid": "Q5", "label": "human"},
+    {"qid": "Q215380", "label": "musical group"},
+    {"qid": "Q188451", "label": "music genre"},
+    {"qid": "Q18127", "label": "record label"},
+    {"qid": "Q34770", "label": "language"},
+    {"qid": "Q7390", "label": "voice"},
+    {"qid": "Q4830453", "label": "record producer"},
+    {"qid": "Q36834", "label": "composer"},
+    {"qid": "Q618779", "label": "award"},
+    {"qid": "Q638", "label": "music"}
+  ],
+  "relations": [
+    {"pid": "P1476", "label": "title", "domain": "Q2188189", "range": "monolingualtext"},
+    {"pid": "P1476", "label": "title", "domain": "Q482994", "range": "monolingualtext"},
+    {"pid": "P86", "label": "composer", "domain": "Q2188189", "range": "Q5"},
+    {"pid": "P676", "label": "lyrics by", "domain": "Q2188189", "range": "Q5"},
+    {"pid": "P175", "label": "performer", "domain": "Q2188189", "range": "item"},
+    {"pid": "P175", "label": "performer", "domain": "Q482994", "range": "item"},
+    {"pid": "P162", "label": "producer", "domain": "Q2188189", "range": "Q5"},
+    {"pid": "P162", "label": "producer", "domain": "Q482994", "range": "Q5"},
+    {"pid": "P577", "label": "publication date", "domain": "Q2188189", "range": "time"},
+    {"pid": "P577", "label": "publication date", "domain": "Q482994", "range": "time"},
+    {"pid": "P2047", "label": "duration", "domain": "Q2188189", "range": "quantity"},
+    {"pid": "P136", "label": "genre", "domain": "Q2188189", "range": "Q188451"},
+    {"pid": "P264", "label": "record label", "domain": "Q482994", "range": "Q18127"},
+    {"pid": "P361", "label": "part of", "domain": "Q2188189", "range": "Q482994"},
+    {"pid": "P658", "label": "tracklist", "domain": "Q482994", "range": "Q2188189"},
+    {"pid": "P870", "label": "instrumentation", "domain": "Q2188189", "range": "string"},
+    {"pid": "P407", "label": "language of work or name", "domain": "Q2188189", "range": "Q34770"},
+    {"pid": "P1411", "label": "nominated for", "domain": "Q2188189", "range": "Q618779"},
+    {"pid": "P166", "label": "award received", "domain": "Q2188189", "range": "Q618779"},
+    {"pid": "P412", "label": "voice type", "domain": "Q5", "range": "Q7390"},
+    {"pid": "P106", "label": "occupation", "domain": "Q5", "range": "item"},
+    {"pid": "P435", "label": "MusicBrainz work ID", "domain": "Q2188189", "range": "string"},
+    {"pid": "P436", "label": "MusicBrainz artist ID", "domain": "Q5", "range": "string"},
+    {"pid": "P5813", "label": "MusicBrainz release group ID", "domain": "Q482994", "range": "string"}
+  ]
+}
+
