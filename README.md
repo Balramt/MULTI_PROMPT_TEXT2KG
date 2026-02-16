@@ -30,34 +30,44 @@ The evaluator filters candidate triples using cross-prompt agreement, explicit e
 
 ## 🟢 Input Data
 
-### 📂 [`input_text`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/input_text)
+### 📂 `data/input/input_text/`
 
-Contains raw input sentences for both **DBpedia–WebNLG** and **Wikidata–TekGen** used during inference and evaluation.
+Raw input sentences for:
 
-- [**DBpedia**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/input_text/dbpedia)  
-- [**Wikidata**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/input_text/wikidata)  
+- **DBpedia–WebNLG**
+- **Wikidata–TekGen**
 
----
-
-### 📂 [`ground_truth`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth)
-
-Gold standard SPO triples used to compute **Precision, Recall, and F1-score**.
-
-- [**DBpedia**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth/dbpedia)  
-- [**Wikidata**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth/wikidata)  
+Subdirectories:
+- `dbpedia/`
+- `wikidata/`
 
 ---
 
-### 📂 [`fewshots_example`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example)
+### 📂 `data/input/ground_truth/`
 
-Few-shot examples injected into prompts to guide ontology-aligned triple extraction.
+Gold standard SPO triples used to compute:
 
-- [**DBpedia**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example/dbpedia)  
-- [**Wikidata**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example/wikidata)  
+- Precision
+- Recall
+- F1-score
+
+Subdirectories:
+- `dbpedia/`
+- `wikidata/`
 
 ---
 
-### 📂 [`ontology`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ontology/old_ontology)
+### 📂 `data/input/fewshots_example/`
+
+Few-shot examples injected into prompts to guide ontology-aligned extraction.
+
+Subdirectories:
+- `dbpedia/`
+- `wikidata/`
+
+---
+
+### 📂 `data/input/ontology/old_ontology/`
 
 Domain-specific ontology schemas including:
 
@@ -65,59 +75,47 @@ Domain-specific ontology schemas including:
 - Relation signatures  
 - Domain–range constraints  
 
-These are injected directly into prompts to enforce schema compliance.
-
-- [**DBpedia Ontologies**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ontology/old_ontology/dbpedia)  
-- [**Wikidata Ontologies**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ontology/old_ontology/wikidata)  
+Subdirectories:
+- `dbpedia/`
+- `wikidata/`
 
 ---
 
-### 📂 [`train_data`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data)
+### 📂 `data/train_data/`
 
-Combined and enriched training dataset used for **LLaMA-3 fine-tuning**.
+Training datasets used for **LLaMA-3 fine-tuning**.
 
-- [**DBpedia Training Data**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/dbpedia)
+- `dbpedia/`
+- `wikidata/`
 
-- **Wikidata Training Data (Synthetic Enrichment Pipeline)**  
+Wikidata includes a synthetic enrichment pipeline:
 
-  - [Input Wikidata Train Data](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/wikidata/synthetic_train_data/wikidata_input_train)  
-  - [Generated & Filtered Output Train Data Used for Fine-Tuning](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/wikidata/synthetic_train_data/wikidata_output_train)
+- `synthetic_train_data/wikidata_input_train/`
+- `synthetic_train_data/wikidata_output_train/`
 
-The Wikidata dataset is synthetically enriched to compensate for incomplete distant supervision. The filtered output data is directly used during LLaMA-3 supervised fine-tuning.
+The filtered output is directly used for supervised fine-tuning.
 
 ---
 
 # 📤 Output Data
 
-This section contains all generated outputs from the multi-prompt extraction pipeline, evaluator filtering stage, and final evaluation metrics.
-
 ## 🔁 Multi-Prompt Extraction Outputs
 
-Each prompting strategy generates an independent candidate triple set before evaluator filtering.
+Located in:
 
-### 📂 [`TOT_dfs`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/multi_step_prompts/TOT_dfs)
+`data/output/multi_step_prompts/`
 
-Structured **Tree-of-Thoughts (ToT)-based depth-first search extraction** outputs.
-
----
-
-### 📂 [`Open_IE_prompt`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/multi_step_prompts/Open_IE_prompt)
-
-Outputs from the **Ontology-Constrained Open Information Extraction** prompt.
-
----
-
-### 📂 [`general_extraction_prompt`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/multi_step_prompts/general_extraction_prompt)
-
-Outputs from the **General Ontology-Aware Extraction Prompt**.
+- `TOT_dfs/` → Tree-of-Thoughts structured extraction  
+- `Open_IE_prompt/` → Ontology-constrained OpenIE  
+- `general_extraction_prompt/` → Lightweight SPO extraction  
 
 ---
 
 ## 🧠 Evaluator-Filtered Outputs
 
-### 📂 [`evaluator_filtered_output`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/evaluator_filtered_output)
+`data/output/evaluator_filtered_output/`
 
-Final merged and filtered triple sets after applying:
+Final merged triple sets after applying:
 
 - Rule A – Cross-Prompt Consensus  
 - Rule B – Evidence-Based Validation  
@@ -127,28 +125,28 @@ Final merged and filtered triple sets after applying:
 
 ## 📊 Evaluation Results
 
-### 📂 [`metrics_evaluation`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation)
+`data/output/metrics_evaluation/`
 
-Dataset-wise results:
+Contains dataset-wise evaluation:
 
-- [**DBpedia–WebNLG**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation/dbpedia)  
-- [**Wikidata–TekGen**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/output/metrics_evaluation/wikidata)
+- `dbpedia/`
+- `wikidata/`
 
-Reported Metrics:
+Metrics reported:
 
-- Precision (P)  
-- Recall (R)  
-- F1-score (F1)  
-- Ontology Conformance (OC ↑)  
-- Subject Hallucination (SH ↓)  
-- Relation Hallucination (RH ↓)  
-- Object Hallucination (OH ↓)  
+- Precision (P)
+- Recall (R)
+- F1-score (F1)
+- Ontology Conformance (OC ↑)
+- Subject Hallucination (SH ↓)
+- Relation Hallucination (RH ↓)
+- Object Hallucination (OH ↓)
 
 ---
 
 # 🧠 Source Code (`src/`)
 
-### 📂 [`src`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/src)
+Main implementation directory.
 
 Contains:
 
@@ -162,71 +160,84 @@ Contains:
 
 ## 🔹 Data Preparation & Training
 
-### 📂 [`Synthetic_train_data_generation_7B.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/Synthetic_train_data_generation_7B.py)
+### `Synthetic_train_data_generation_7B.py`
 
-Generates ontology-filtered synthetic triples for **Wikidata–TekGen**.
+Generates ontology-filtered synthetic triples for Wikidata–TekGen.
 
 ---
 
-### 📂 [`Llama_finetuned.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/Llama_finetuned.py)
+### `Llama_finetuned.py`
 
-Performs supervised fine-tuning (SFT) of **LLaMA-3-8B-Instruct** using LoRA/QLoRA.
+Supervised fine-tuning (SFT) of LLaMA-3-8B-Instruct using LoRA/QLoRA.
 
 ---
 
 ## 🔁 Multi-Prompt Extraction Modules
 
-### 📂 [`Open_IE_prompt.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/multi_prompt_extractor/Open_IE_prompt.py)
+Located in:
 
-Ontology-constrained OpenIE extraction.
+`src/multi_prompt_extractor/`
 
----
-
-### 📂 [`general_extraction_prompt.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/multi_prompt_extractor/general_extraction_prompt.py)
-
-Lightweight ontology-aware SPO extraction.
+- `Open_IE_prompt.py`
+- `general_extraction_prompt.py`
 
 ---
 
-### 📂 [`evaluator.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/evaluator.py)
+### `evaluator.py`
 
-Hierarchical triple verification engine.
+Implements hierarchical triple verification:
+
+- Cross-Prompt Consensus
+- Evidence-Based Validation
+- Similarity-Based Filtering
 
 ---
 
 # 📁 Project Directory Structure
 
+```text
 MULTI_PROMPT_TEXT2KG/
 │
 ├── data/
-│ ├── input/
-│ │ ├── input_text/
-│ │ ├── ground_truth/
-│ │ ├── fewshots_example/
-│ │ └── ontology/
-│ │
-│ ├── train_data/
-│ │ ├── dbpedia/
-│ │ └── wikidata/
-│ │
-│ └── output/
-│ ├── multi_step_prompts/
-│ │ ├── TOT_dfs/
-│ │ ├── Open_IE_prompt/
-│ │ └── general_extraction_prompt/
-│ │
-│ ├── evaluator_filtered_output/
-│ └── metrics_evaluation/
+│   ├── input/
+│   │   ├── input_text/
+│   │   │   ├── dbpedia/
+│   │   │   └── wikidata/
+│   │   ├── ground_truth/
+│   │   │   ├── dbpedia/
+│   │   │   └── wikidata/
+│   │   ├── fewshots_example/
+│   │   │   ├── dbpedia/
+│   │   │   └── wikidata/
+│   │   └── ontology/
+│   │       └── old_ontology/
+│   │           ├── dbpedia/
+│   │           └── wikidata/
+│   │
+│   ├── train_data/
+│   │   ├── dbpedia/
+│   │   └── wikidata/
+│   │       └── synthetic_train_data/
+│   │           ├── wikidata_input_train/
+│   │           └── wikidata_output_train/
+│   │
+│   └── output/
+│       ├── multi_step_prompts/
+│       │   ├── TOT_dfs/
+│       │   ├── Open_IE_prompt/
+│       │   └── general_extraction_prompt/
+│       │
+│       ├── evaluator_filtered_output/
+│       └── metrics_evaluation/
+│           ├── dbpedia/
+│           └── wikidata/
 │
 ├── src/
-│ ├── Synthetic_train_data_generation_7B.py
-│ ├── Llama_finetuned.py
-│ ├── multi_prompt_extractor/
-│ │ ├── Open_IE_prompt.py
-│ │ └── general_extraction_prompt.py
-│ └── evaluator.py
+│   ├── Synthetic_train_data_generation_7B.py
+│   ├── Llama_finetuned.py
+│   ├── evaluator.py
+│   └── multi_prompt_extractor/
+│       ├── Open_IE_prompt.py
+│       └── general_extraction_prompt.py
 │
 └── README.md
-
-
----
