@@ -214,18 +214,3 @@ Implements hierarchical triple verification:
 Merges and filters candidate triples to reduce hallucinations and ensure ontology consistency.
 
 ---
-
-# 📊 Evaluation
-
-### 📂 [`metrics_evaluation.py`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/blob/main/src/metrics_evaluation.py)
-Computes:
-
-- Precision  
-- Recall  
-- F1-score  
-- Ontology Conformance (OC ↑)  
-- Subject Hallucination (SH ↓)  
-- Relation Hallucination (RH ↓)  
-- Object Hallucination (OH ↓)  
-
-All metrics are calculated **after evaluator filtering**.
