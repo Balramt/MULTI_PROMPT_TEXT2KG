@@ -33,30 +33,25 @@ Contains raw input sentences for both **DBpedia–WebNLG** and **Wikidata–TekG
 
 1. [**DBpedia**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/input_text/dbpedia)
 
-2. **Wikidata** –  
-   [`data/input/input_text/wikidata`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/input_text/wikidata)
+2. [**Wikidata**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/input_text/wikidata)
 
 ---
 
 ### 📂 [`ground_truth`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth)
 Gold standard SPO triples used to compute **Precision, Recall, and F1-score**.
 
-1. **DBpedia** –  
-   [`data/input/ground_truth/dbpedia`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth/dbpedia)
+1. [**DBpedia**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth/dbpedia)
 
-2. **Wikidata** –  
-   [`data/input/ground_truth/wikidata`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth/wikidata)
+2. [**Wikidata**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ground_truth/wikidata)
 
 ---
 
 ### 📂 [`fewshots_example`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example)
 Few-shot examples injected into prompts to guide ontology-aligned triple extraction.
 
-1. **DBpedia** –  
-   [`data/input/fewshots_example/dbpedia`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example/dbpedia)
+1. [**DBpedia**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example/dbpedia)
 
-2. **Wikidata** –  
-   [`data/input/fewshots_example/wikidata`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example/wikidata)
+2. [**Wikidata**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/fewshots_example/wikidata)
 
 ---
 
@@ -69,27 +64,22 @@ Domain-specific ontology schemas including:
 
 These are directly injected into prompts to enforce schema compliance.
 
-1. **DBpedia Ontologies** –  
-   [`data/input/ontology/old_ontology/dbpedia`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ontology/old_ontology/dbpedia)
+1. [**DBpedia Ontologies**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ontology/old_ontology/dbpedia)
 
-2. **Wikidata Ontologies** –  
-   [`data/input/ontology/old_ontology/wikidata`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ontology/old_ontology/wikidata)
+2. [**Wikidata Ontologies**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/input/ontology/old_ontology/wikidata)
 
 ---
 
 ### 📂 [`train_data`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data)
 Combined and enriched training dataset used for **LLaMA-3 fine-tuning**.
 
-1. **DBpedia Training Data** –  
-   [`data/train_data/dbpedia`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/dbpedia)
+1. [**DBpedia Training Data**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/dbpedia)
 
 2. **Wikidata Training Data (Synthetic Enrichment Pipeline)**  
 
-   - **Input Wikidata Train Data** –  
-     [`wikidata_input_train`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/wikidata/synthetic_train_data/wikidata_input_train)
+   - [**Input Wikidata Train Data** ](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/wikidata/synthetic_train_data/wikidata_input_train)
 
-   - **Generated & Filtered Output Train Data (Used for Fine-Tuning)** –  
-     [`wikidata_output_train`](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/wikidata/synthetic_train_data/wikidata_output_train)
+   - [**Generated & Filtered Output Train Data (Used for Fine-Tuning)(https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/wikidata/synthetic_train_data/wikidata_output_train)
 
    The Wikidata dataset is synthetically enriched to compensate for incomplete distant supervision.  
    The filtered output data is directly used during LLaMA-3 supervised fine-tuning.
