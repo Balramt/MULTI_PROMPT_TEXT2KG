@@ -79,7 +79,7 @@ Combined and enriched training dataset used for **LLaMA-3 fine-tuning**.
 
    - [**Input Wikidata Train Data** ](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/wikidata/synthetic_train_data/wikidata_input_train)
 
-   - [**Generated & Filtered Output Train Data (Used for Fine-Tuning)**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/wikidata/synthetic_train_data/wikidata_output_train)
+   - [**Generated & Filtered Output Train Data Used for Fine-Tuning**](https://github.com/Balramt/MULTI_PROMPT_TEXT2KG/tree/main/data/train_data/wikidata/synthetic_train_data/wikidata_output_train)
 
    The Wikidata dataset is synthetically enriched to compensate for incomplete distant supervision.  
    The filtered output data is directly used during LLaMA-3 supervised fine-tuning.
